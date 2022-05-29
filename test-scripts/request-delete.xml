@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ptc="http://no.group.petclinic/owners">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ptc:deleteOwnerRequest>
+        	<ptc:id>30</ptc:id>
+        </ptc:deleteOwnerRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ptc="http://no.group.petclinic/owners">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ptc:getOwnersRequest>
+        	<ptc:keyword>sat</ptc:keyword>
+        </ptc:getOwnersRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

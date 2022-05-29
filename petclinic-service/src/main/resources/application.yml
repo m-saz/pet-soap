@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pet_clinic
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      initialization-fail-timeout: 5000
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        formatSql: true
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+
+allowed:
+  origins: http://localhost:4200, https://localhost:4200

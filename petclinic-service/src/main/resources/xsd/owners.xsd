@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://no.group.petclinic/owners"
+            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.0"
+            targetNamespace="http://no.group.petclinic/owners"
+            elementFormDefault="qualified">
+
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:schemaBindings>
+                <jaxb:package name="no.group.petclinic.domain" />
+            </jaxb:schemaBindings>
+        </xs:appinfo>
+    </xs:annotation>
+
+    <xs:include schemaLocation="types.xsd"/>
+
+    <xs:element name="getOwnersRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="keyword" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getOwnersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="owners" type="tns:Owner" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getSingleOwnerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:nonNegativeInteger" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getSingleOwnerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="owner" type="tns:Owner" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="saveOwnerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="owner" type="tns:Owner" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="saveOwnerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="tns:OperationStatus" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteOwnerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:nonNegativeInteger" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteOwnerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="tns:OperationStatus" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateOwnerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="owner" type="tns:Owner" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateOwnerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="tns:OperationStatus" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,32 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ptc="http://no.group.petclinic/owners">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ptc:saveOwnerRequest>
+        <ptc:owner>
+		<ptc:firstName>Carl</ptc:firstName>
+		<ptc:lastName>Satan</ptc:lastName>
+		<ptc:email>carl@hellbox.com</ptc:email>
+		<ptc:phoneNumber>0000000000</ptc:phoneNumber>
+		<ptc:city>Hell</ptc:city>
+		<ptc:address>666 Hell St.</ptc:address>
+		<ptc:pets>
+		  <ptc:name>Sparkles</ptc:name>
+		  <ptc:birthDate>2015-11-11+00:00</ptc:birthDate>
+		  <ptc:type>
+		    <ptc:id>5</ptc:id>
+		    <ptc:type>bird</ptc:type>
+		  </ptc:type>
+		</ptc:pets>
+		<ptc:pets>
+		  <ptc:name>Flutters</ptc:name>
+		  <ptc:birthDate>2006-06-06+00:00</ptc:birthDate>
+		  <ptc:type>
+		    <ptc:id>1</ptc:id>
+		    <ptc:type>cat</ptc:type>
+		  </ptc:type>
+		</ptc:pets>
+    	</ptc:owner>
+    	</ptc:saveOwnerRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

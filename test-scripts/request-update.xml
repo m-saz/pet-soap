@@ -1,0 +1,26 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ns2="http://no.group.petclinic/owners">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ns2:updateOwnerRequest>
+        <ns2:owner>
+		<ns2:id>27</ns2:id>
+		<ns2:firstName>James</ns2:firstName>
+		<ns2:lastName>Boss</ns2:lastName>
+		<ns2:email>boss@gmail.com</ns2:email>
+		<ns2:phoneNumber>1323434223</ns2:phoneNumber>
+		<ns2:city>Madrid</ns2:city>
+		<ns2:address>21314 Rebel St</ns2:address>
+		<ns2:pets>
+		  <ns2:id>30</ns2:id>
+		  <ns2:name>Van Gogh</ns2:name>
+		  <ns2:birthDate>2018-11-23+03:00</ns2:birthDate>
+		  <ns2:type>
+		    <ns2:id>1</ns2:id>
+		    <ns2:type>cat</ns2:type>
+		  </ns2:type>
+		</ns2:pets>
+      	</ns2:owner>
+    	</ns2:updateOwnerRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
