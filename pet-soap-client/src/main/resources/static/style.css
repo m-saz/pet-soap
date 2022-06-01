@@ -1,0 +1,36 @@
+.header {
+    background: green;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+}
+
+.header a:visited, .header a:active, .header a:link{
+    color: white;
+    font-size: 35pt;
+    margin-left: 200px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #EEEEEE;
+    font-size: 35pt;
+    margin-left: 200px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.form-area {
+    background: #c9eecd;
+    width: 900px;
+    padding: 30px;
+}
+
+.form-area label {
+    font-size: 17pt;
+}
+
+.main-content {
+   padding-top: 90px;
+}

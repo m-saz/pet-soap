@@ -13,24 +13,7 @@ import java.util.List;
 
 @SpringBootApplication
 public class PetSoapClientApplication {
-
-	@Autowired
-	OwnersClient client;
-
 	public static void main(String[] args) {
 		SpringApplication.run(PetSoapClientApplication.class, args);
 	}
-
-	@Bean
-	CommandLineRunner runner() {
-		return new CommandLineRunner() {
-			@Override
-			public void run(String... args) throws Exception {
-				GetOwnersResponse response = client.getOwners();
-				List<Owner> owners = response.getOwners();
-				owners.forEach(owner -> System.out.println(owner.getFirstName()));
-			}
-		};
-	}
-
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner Info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <link th:href="@{/style.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div th:insert="header" />
+    <div class="main-content">
+        <div class="container">
+            <h1 class="my-3">Owner Info:
+                <a th:href="@{/owners/showUpdateOwnerForm(id=${owner.id})}"
+                   class="btn btn-sm btn-success">Edit</a>
+            </h1>
+            <p>First Name: <b th:text="${owner.firstName}"/></p>
+            <p>Last Name: <b th:text="${owner.lastName}"/></p>
+            <p>Email: <b th:text="${owner.email}"/></p>
+            <p>Phone Number: <b th:text="${owner.phoneNumber}"/></p>
+            <p>City: <b th:text="${owner.city}"/></p>
+            <p>Address: <b th:text="${owner.address}"/></p>
+            <div th:each="tempPet : ${owner.pets}">
+                <hr>
+                <h2>
+                    Pet: <a th:href="@{/owners/list}" class="btn btn-sm btn-success">Edit</a>
+                    <a th:href="@{/owners/list}" class="btn btn-sm btn-danger">Delete</a>
+                </h2>
+                <p>Name: <b th:text="${tempPet.name}"/></p>
+                <p>Birth Date: <b th:text="${tempPet.birthDate}"/></p>
+                <p>Type: <b th:text="${tempPet.type.type}"/></p>
+                <div th:if="${#lists.size(tempPet.visits)} > 0">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Visit Date</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr th:each="tempVisit : ${tempPet.visits}">
+                            <td th:text="${tempVisit.visitDate}"></td>
+                            <td th:text="${tempVisit.description}"></td>
+                            <td>
+                                <a th:href="@{/owners/list}" class="btn btn-sm btn-success">Edit</a>
+                                <a th:href="@{/owners/list}" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <a th:href="@{/owners/list}" class="btn btn-primary my-3">Add Visit</a>
+            </div>
+            <a th:href="@{/owners/list}" class="btn btn-primary">Add Pet</a>
+            <hr>
+            <a th:href="@{/owners/list}" class="btn btn-secondary">Back</a>
+        </div>
+    </div>
+</body>
+</html>
