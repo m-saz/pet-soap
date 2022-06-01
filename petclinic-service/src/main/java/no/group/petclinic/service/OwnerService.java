@@ -1,6 +1,6 @@
 package no.group.petclinic.service;
 
-import petclinic.group.no.owners.*;
+import no.group.petclinic.domain.*;
 
 public interface OwnerService {
 

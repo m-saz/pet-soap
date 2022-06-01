@@ -99,6 +99,7 @@
                     </execution>
                 </executions>
                 <configuration>
+					<packageName>no.group.petclinic.domain</packageName>
                     <sources>
 						<source>${project.basedir}/src/main/resources/xsd/owners.xsd</source>
 						<source>${project.basedir}/src/main/resources/xsd/types.xsd</source>

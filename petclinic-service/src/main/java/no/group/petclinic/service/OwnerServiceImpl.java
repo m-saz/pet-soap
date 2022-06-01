@@ -9,7 +9,7 @@ import no.group.petclinic.mapper.OwnerMapper;
 import no.group.petclinic.repository.OwnerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import petclinic.group.no.owners.*;
+import no.group.petclinic.domain.*;
 
 import java.util.List;
 
