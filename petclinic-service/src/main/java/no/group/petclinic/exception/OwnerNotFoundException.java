@@ -1,9 +1,9 @@
 package no.group.petclinic.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.ws.soap.server.endpoint.annotation.FaultCode;
+import org.springframework.ws.soap.server.endpoint.annotation.SoapFault;
 
-@ResponseStatus(value = HttpStatus.NOT_FOUND)
+@SoapFault(faultCode = FaultCode.CLIENT)
 public class OwnerNotFoundException extends RuntimeException {
 	public OwnerNotFoundException(String errorMessage) {
 		super(errorMessage);

@@ -94,7 +94,7 @@ public class OwnerServiceImpl implements OwnerService {
             ownerRepository.findById(ownerId);
             ownerRepository.save(ownerEntity);
         } else {
-            response.setStatus(OperationStatus.ERROR);
+            throw new OwnerNotFoundException("Can't find Owner with id: " + ownerId);
         }
         return response;
     }
@@ -108,7 +108,7 @@ public class OwnerServiceImpl implements OwnerService {
             ownerRepository.deleteById(ownerId);
         }
         else {
-            response.setStatus(OperationStatus.ERROR);
+            throw new OwnerNotFoundException("Can't find Owner with id: " + ownerId);
         }
         return response;
     }

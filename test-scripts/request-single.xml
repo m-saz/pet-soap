@@ -3,7 +3,7 @@
     <soapenv:Header/>
     <soapenv:Body>
         <ptc:getSingleOwnerRequest>
-        	<ptc:id>27</ptc:id>
+        	<ptc:id>666</ptc:id>
         </ptc:getSingleOwnerRequest>
     </soapenv:Body>
 </soapenv:Envelope>
