@@ -1,7 +1,6 @@
 package no.group.petclinic.service;
 
 import lombok.RequiredArgsConstructor;
-import no.group.petclinic.domain.*;
 import no.group.petclinic.entity.OwnerEntity;
 import no.group.petclinic.entity.PetEntity;
 import no.group.petclinic.entity.VisitEntity;
@@ -10,6 +9,7 @@ import no.group.petclinic.mapper.OwnerMapper;
 import no.group.petclinic.repository.OwnerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import petclinic.group.no.owners.*;
 
 import java.util.List;
 
@@ -26,11 +26,9 @@ public class OwnerServiceImpl implements OwnerService {
         GetOwnersResponse response = new GetOwnersResponse();
         List<OwnerEntity> owners = ownerRepository.findAll();
 
-        owners.forEach(owner -> {
-            response.getOwners().add(
-                    ownerMapper.ownerEntityToDomain(owner)
-            );
-        });
+        owners.forEach(owner ->
+            response.getOwners().add(ownerMapper.ownerEntityToDomain(owner))
+        );
         return response;
     }
 
@@ -42,11 +40,9 @@ public class OwnerServiceImpl implements OwnerService {
                 ownerRepository
                         .findByFirstNameContainingOrLastNameContainingAllIgnoreCase(
                                 keyword, keyword);
-        owners.forEach(owner -> {
-            response.getOwners().add(
-                    ownerMapper.ownerEntityToDomain(owner)
-            );
-        });
+        owners.forEach(owner ->
+            response.getOwners().add(ownerMapper.ownerEntityToDomain(owner))
+        );
         return response;
     }
 
@@ -130,9 +126,9 @@ public class OwnerServiceImpl implements OwnerService {
             ownerEntity.getPets().forEach(petEntity -> {
                 petEntity.setId(null);
                 if(petEntity.getVisits() != null){
-                    petEntity.getVisits().forEach(visitEntity -> {
-                        visitEntity.setId(null);
-                    });
+                    petEntity.getVisits().forEach(visitEntity ->
+                        visitEntity.setId(null)
+                    );
                 }
             });
         }

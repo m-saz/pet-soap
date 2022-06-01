@@ -1,21 +1,19 @@
 package no.group.petclinic.service;
 
-import no.group.petclinic.domain.*;
-import no.group.petclinic.entity.OwnerEntity;
-import org.springframework.data.domain.Pageable;
+import petclinic.group.no.owners.*;
 
 public interface OwnerService {
 
-	public GetOwnersResponse getOwners();
+	GetOwnersResponse getOwners();
 
-	public GetOwnersResponse searchOwners(String keyword);
+	GetOwnersResponse searchOwners(String keyword);
 
-	public GetSingleOwnerResponse getOwner(Integer ownerId);
+	GetSingleOwnerResponse getOwner(Integer ownerId);
 
-	public SaveOwnerResponse saveOwner(Owner owner);
+	SaveOwnerResponse saveOwner(Owner owner);
 
-	public UpdateOwnerResponse updateOwner(Owner owner);
+	UpdateOwnerResponse updateOwner(Owner owner);
 
-	public DeleteOwnerResponse deleteOwner(Integer ownerId);
+	DeleteOwnerResponse deleteOwner(Integer ownerId);
 
 }

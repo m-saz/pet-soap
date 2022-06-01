@@ -1,14 +1,12 @@
 package no.group.petclinic.endpoint;
 
 import lombok.RequiredArgsConstructor;
-import no.group.petclinic.domain.*;
 import no.group.petclinic.service.OwnerService;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-
-import java.math.BigInteger;
+import petclinic.group.no.owners.*;
 
 @Endpoint
 @RequiredArgsConstructor
