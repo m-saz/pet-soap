@@ -65,6 +65,24 @@
                             <input type="text" class="form-control"  th:field="*{address}"/>
                         </div>
                     </div>
+                    <th:block th:each="pet, pstat : ${owner.pets}">
+                        <input type="hidden" th:field="*{pets[__${pstat.index}__].id}" th:value="${pet.id}">
+                        <input type="hidden" th:field="*{pets[__${pstat.index}__].name}" th:value="${pet.name}">
+                        <input type="hidden" th:field="*{pets[__${pstat.index}__].birthDate}" th:value="${pet.birthDate}">
+                        <input type="hidden" th:field="*{pets[__${pstat.index}__].type.id}" th:value="${pet.type.id}">
+                        <input type="hidden" th:field="*{pets[__${pstat.index}__].type.type}" th:value="${pet.type.type}">
+                        <th:block th:each="visit, vstat : ${pet.visits}">
+                            <input type="hidden"
+                                   th:field="*{pets[__${pstat.index}__].visits[__${vstat.index}__].id}"
+                                   th:value="${visit.id}">
+                            <input type="hidden"
+                                   th:field="*{pets[__${pstat.index}__].visits[__${vstat.index}__].visitDate}"
+                                   th:value="${visit.visitDate}">
+                            <input type="hidden"
+                                   th:field="*{pets[__${pstat.index}__].visits[__${vstat.index}__].description}"
+                                   th:value="${visit.description}">
+                        </th:block>
+                    </th:block>
                     <div class="text-center">
                         <input type="submit" class="btn btn-lg btn-success my-3" value="Submit">
                     </div>

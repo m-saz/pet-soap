@@ -26,11 +26,18 @@
             <div th:each="tempPet : ${owner.pets}">
                 <hr>
                 <h2>
-                    Pet: <a th:href="@{/owners/list}" class="btn btn-sm btn-success">Edit</a>
-                    <a th:href="@{/owners/list}" class="btn btn-sm btn-danger">Delete</a>
+                    Pet:
+                    <a th:href="@{/owners/showEditPetForm(ownerId=${owner.id}, petId=${tempPet.id})}"
+                       class="btn btn-sm btn-success">
+                        Edit
+                    </a>
+                    <a th:href="@{/owners/deletePet(ownerId=${owner.id}, petId=${tempPet.id})}"
+                       class="btn btn-sm btn-danger">
+                        Delete
+                    </a>
                 </h2>
                 <p>Name: <b th:text="${tempPet.name}"/></p>
-                <p>Birth Date: <b th:text="${tempPet.birthDate}"/></p>
+                <p>Birth Date: <b th:text="${#temporals.format(tempPet.birthDate, 'dd.MM.yyyy')}"/></p>
                 <p>Type: <b th:text="${tempPet.type.type}"/></p>
                 <div th:if="${#lists.size(tempPet.visits)} > 0">
                     <table class="table table-bordered">
@@ -40,18 +47,25 @@
                             <th>Action</th>
                         </tr>
                         <tr th:each="tempVisit : ${tempPet.visits}">
-                            <td th:text="${tempVisit.visitDate}"></td>
+                            <td th:text="${#temporals.format(tempVisit.visitDate, 'dd.MM.yyyy')}"></td>
                             <td th:text="${tempVisit.description}"></td>
                             <td>
-                                <a th:href="@{/owners/list}" class="btn btn-sm btn-success">Edit</a>
-                                <a th:href="@{/owners/list}" class="btn btn-sm btn-danger">Delete</a>
+                                <a th:href="@{/owners/showEditVisitForm(ownerId=${owner.id}, petId=${tempPet.id}, visitId=${tempVisit.id})}"
+                                   class="btn btn-sm btn-success">
+                                    Edit
+                                </a>
+                                <a th:href="@{/owners/deleteVisit(ownerId=${owner.id}, visitId=${tempVisit.id})}"
+                                   class="btn btn-sm btn-danger">
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                     </table>
                 </div>
-                <a th:href="@{/owners/list}" class="btn btn-primary my-3">Add Visit</a>
+                <a th:href="@{/owners/showAddVisitForm(ownerId=${owner.id}, petId=${tempPet.id})}"
+                   class="btn btn-primary my-3">Add Visit</a>
             </div>
-            <a th:href="@{/owners/list}" class="btn btn-primary">Add Pet</a>
+            <a th:href="@{/owners/showAddPetForm(ownerId=${owner.id})}" class="btn btn-primary">Add Pet</a>
             <hr>
             <a th:href="@{/owners/list}" class="btn btn-secondary">Back</a>
         </div>

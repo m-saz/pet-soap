@@ -3,8 +3,7 @@ version: '3.8'
 services:
   soap-service:
     image: 'pet-soap-service:latest'
-    build:
-      context: ./petclinic-service
+    build: ./petclinic-service
     ports:
       - 8080:8080
     depends_on:
@@ -14,7 +13,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/petclinic
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
-          
+      
   postgres:
     image: 'postgres:${POSTGRES_VERSION}'
     volumes:

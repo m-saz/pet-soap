@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <link th:href="@{/style.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div th:insert="header"/>
+    <div class="main-content">
+        <div class="container">
+            <div class="form-area">
+                <h1 class="my-3">Pet</h1>
+                <form action="#" th:action="@{/owners/savePet}" th:object="${pet}" method="post">
+                    <input type="hidden" th:value="${ownerId}" name="ownerId">
+                    <input type="hidden" th:field="*{id}"/>
+                    <div class="row my-2">
+                        <div class="col-md-3">
+                            <label>Name:</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" th:field="*{name}"/>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-3">
+                            <label>Birth Date:</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" th:field="*{birthDate}" placeholder="dd.MM.yyyy"/>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-3">
+                            <label>Type:</label>
+                        </div>
+                        <div class="col-md-9">
+                            <select th:field="*{type}" class="form-select">
+                                <option th:each="tempType : ${types}" th:value="${tempType.id}" th:text="${tempType.type}" />
+                            </select>
+                        </div>
+                    </div>
+                    <th:block th:each="visit, stat : ${pet.visits}">
+                        <input type="hidden"
+                               th:field="*{visits[__${stat.index}__].id}"
+                               th:value="${visit.id}">
+                        <input type="hidden"
+                               th:field="*{visits[__${stat.index}__].visitDate}"
+                               th:value="${visit.visitDate}">
+                        <input type="hidden"
+                               th:field="*{visits[__${stat.index}__].description}"
+                               th:value="${visit.description}">
+                    </th:block>
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-lg btn-success my-3" value="Submit">
+                    </div>
+                </form>
+                <a th:href="@{/owners/info/{id}(id=${ownerId})}" class="btn btn-secondary">Back</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

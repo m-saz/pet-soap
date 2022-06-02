@@ -14,13 +14,4 @@ public class SoapConfig {
         marshaller.setContextPath("no.group.petsoapclient.wsdl");
         return marshaller;
     }
-
-    @Bean
-    public OwnersClient ownersClient(Jaxb2Marshaller marshaller) {
-        OwnersClient client = new OwnersClient();
-        client.setDefaultUri("http://localhost:8080/ws");
-        client.setMarshaller(marshaller);
-        client.setUnmarshaller(marshaller);
-        return client;
-    }
 }
