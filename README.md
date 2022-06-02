@@ -3,7 +3,11 @@ SOAP service and client. Built using **Spring Web Services** exposing endpoints 
 
 Run service and database with `docker-compose build && docker-compose up`
 
-After service is up, run client with `client.sh`
+After service is up, run client with `client.sh`. Client build process requires access to published WSDL, so it won't compile if service is down.
+
+WSDL file can be accessed at http://localhost:8080/ws/owners.wsdl
+
+Client is at http://localhost:8081/
 
 TO DO:
 - Client form validation
